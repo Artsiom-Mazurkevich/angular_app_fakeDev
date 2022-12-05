@@ -6,6 +6,8 @@ import { TopHeaderComponent } from './top-header/top-header.component'
 import { MainComponent } from './main-component/main.component'
 import { ArticleComponent } from './article/article.component'
 import { SignInUpComponent } from './sign-in-up/sign-in-up.component'
+import { FormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http'
 
 const appRoutes: Routes = [
    { path: '', component: MainComponent },
@@ -15,7 +17,7 @@ const appRoutes: Routes = [
 
 @NgModule({
    declarations: [AppComponent, TopHeaderComponent, MainComponent, ArticleComponent, SignInUpComponent],
-   imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
+   imports: [BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, HttpClientModule],
    providers: [],
    bootstrap: [AppComponent],
 })
