@@ -1,75 +1,74 @@
-<div class="border rounded flex flex-col">
-   <img
-      class="h-80 w-full rounded"
-      src="https://img1.goodfon.ru/wallpaper/nbig/5/6a/world-of-tanks-leopard-1.jpg"
-      alt=""
-   />
-   <div class="flex flex-col p-5">
-      <div class="flex flex-row">
-         <img
-            class="rounded-full w-14 mr-3"
-            src="https://sun9-33.userapi.com/impg/uh89gQ4q5NAa94UoYTdSjTIbkhGvKInaF3_AXQ/zEYHfPPHmwI.jpg?size=1150x1150&quality=95&sign=a1718d40f75bc6e27daab5c174868b01&type=album"
-            alt=""
-         />
-         <div class="flex flex-col">
-            <span class="font-semibold">Leonid 🚀</span>
-            <span>{{ date }}</span>
-         </div>
-      </div>
-      <div class="flex flex-col pl-16 ml-1">
-         <div>
-            <h3 class="text-3xl font-bold mb-4">Leopard 1 It's the best tank</h3>
-         </div>
-         <div class="flex flex-row mb-6">
-            <span class="text-gray-500 mr-3">#react</span>
-            <span class="text-gray-500 mr-3">#WOT</span>
-            <span class="text-gray-500 mr-3">#BigData</span>
-            <span class="text-gray-500 mr-3">#Algorithms</span>
-         </div>
-         <div class="flex flex-row justify-between">
-            <div class="flex flex-row">
-               <a class="flex flex-row align-bottom mr-4" href="">
-                  <svg
-                     xmlns="http://www.w3.org/2000/svg"
-                     width="24"
-                     height="24"
-                     role="img"
-                     aria-labelledby="a7v61t7fmltmt7hi9obis4lttva6ikva"
-                     class="crayons-icon"
-                  >
-                     <title id="a7v61t7fmltmt7hi9obis4lttva6ikva">Reactions</title>
-                     <path
-                        d="M18.884 12.595l.01.011L12 19.5l-6.894-6.894.01-.01A4.875 4.875 0 0112 5.73a4.875 4.875 0 016.884 6.865zM6.431 7.037a3.375 3.375 0 000 4.773L12 17.38l5.569-5.569a3.375 3.375 0 10-4.773-4.773L9.613 10.22l-1.06-1.062 2.371-2.372a3.375 3.375 0 00-4.492.25v.001z"
-                     ></path>
-                  </svg>
-                  6 reactions
-               </a>
-               <a class="flex flex-row align-bottom" href="">
-                  <svg
-                     xmlns="http://www.w3.org/2000/svg"
-                     width="24"
-                     height="24"
-                     role="img"
-                     aria-labelledby="a8dyolkcqzatnj8zy16hh7zrycrqguj"
-                     class="crayons-icon"
-                  >
-                     <title id="a8dyolkcqzatnj8zy16hh7zrycrqguj">Comments</title>
-                     <path
-                        d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"
-                     ></path>
-                  </svg>
-                  1 comment
-               </a>
+<div *ngFor="let article of articles$">
+   <div class="border rounded flex flex-col">
+      <img
+         class="h-80 w-full rounded"
+         src="https://img1.goodfon.ru/wallpaper/nbig/5/6a/world-of-tanks-leopard-1.jpg"
+         alt=""
+      />
+      <div class="flex flex-col p-5">
+         <div class="flex flex-row">
+            <img
+               class="rounded-full w-14 mr-3"
+               src="https://sun9-33.userapi.com/impg/uh89gQ4q5NAa94UoYTdSjTIbkhGvKInaF3_AXQ/zEYHfPPHmwI.jpg?size=1150x1150&quality=95&sign=a1718d40f75bc6e27daab5c174868b01&type=album"
+               alt=""
+            />
+            <div class="flex flex-col">
+               <span class="font-semibold">Leonid 🚀</span>
+               <span>{{ article.createdAt | date }}</span>
             </div>
-            <div class="flex flex-row">
-               <small class="pt-0.5">3 min read</small>
-               <button class="ml-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" aria-hidden="true">
-                     <path
-                        d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"
-                     ></path>
-                  </svg>
-               </button>
+         </div>
+         <div class="flex flex-col pl-16 ml-1">
+            <div>
+               <h3 class="text-3xl font-bold mb-4">{{ article.title }}</h3>
+            </div>
+            <div class="flex flex-row mb-6">
+               <span class="text-gray-500 mr-3" *ngFor="let article of article.tags">{{ article }}</span>
+            </div>
+            <div class="flex flex-row justify-between">
+               <div class="flex flex-row">
+                  <a class="flex flex-row align-bottom mr-4" href="">
+                     <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        role="img"
+                        aria-labelledby="a7v61t7fmltmt7hi9obis4lttva6ikva"
+                        class="crayons-icon"
+                     >
+                        <title id="a7v61t7fmltmt7hi9obis4lttva6ikva">Reactions</title>
+                        <path
+                           d="M18.884 12.595l.01.011L12 19.5l-6.894-6.894.01-.01A4.875 4.875 0 0112 5.73a4.875 4.875 0 016.884 6.865zM6.431 7.037a3.375 3.375 0 000 4.773L12 17.38l5.569-5.569a3.375 3.375 0 10-4.773-4.773L9.613 10.22l-1.06-1.062 2.371-2.372a3.375 3.375 0 00-4.492.25v.001z"
+                        ></path>
+                     </svg>
+                     6 reactions
+                  </a>
+                  <a class="flex flex-row align-bottom" href="">
+                     <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        role="img"
+                        aria-labelledby="a8dyolkcqzatnj8zy16hh7zrycrqguj"
+                        class="crayons-icon"
+                     >
+                        <title id="a8dyolkcqzatnj8zy16hh7zrycrqguj">Comments</title>
+                        <path
+                           d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"
+                        ></path>
+                     </svg>
+                     1 comment
+                  </a>
+               </div>
+               <div class="flex flex-row">
+                  <small class="pt-0.5">3 min read</small>
+                  <button class="ml-3">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" aria-hidden="true">
+                        <path
+                           d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"
+                        ></path>
+                     </svg>
+                  </button>
+               </div>
             </div>
          </div>
       </div>

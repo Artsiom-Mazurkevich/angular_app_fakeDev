@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { BackendService } from '../backend.service'
+import { Article, BackendService } from '../backend.service'
 
 @Component({
    selector: 'app-article',
@@ -11,11 +11,17 @@ export class ArticleComponent implements OnInit {
 
    date = new Date().toUTCString()
 
-   articles: any = []
+   articles$: Article[] = []
+   photos: any = []
 
    ngOnInit(): void {
       this.backendService.getArticles('/post').subscribe(res => {
-         this.articles = res
+         this.articles$ = res
+         console.log(res)
+      })
+      this.backendService.getListImages('/files').subscribe(res => {
+         this.photos = res
+         console.log(res)
       })
    }
 }
