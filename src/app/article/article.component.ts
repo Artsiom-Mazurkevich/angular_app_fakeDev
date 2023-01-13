@@ -9,18 +9,11 @@ import { Article, BackendService } from '../backend.service'
 export class ArticleComponent implements OnInit {
    constructor(public backendService: BackendService) {}
 
-   date = new Date().toUTCString()
-
    articles$: Article[] = []
-   photos: any = []
 
    ngOnInit(): void {
-      this.backendService.getArticles('/post').subscribe(res => {
+      this.backendService.getArticles('/article').subscribe((res: any) => {
          this.articles$ = res
-         console.log(res)
-      })
-      this.backendService.getListImages('/files').subscribe(res => {
-         this.photos = res
          console.log(res)
       })
    }

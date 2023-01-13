@@ -3,15 +3,15 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'
 
 export interface Article {
-   author: string
-   createdAt: Date
-   tags: string[]
-   text: string
-   title: string
-   updatedAt: Date
-   viewsCount: Date
-   __v: number
    _id: string
+   title: string
+   text: string
+   authorId: string
+   authorName: string
+   viewsCount: number
+   imageUrl: string
+   createdAt: Date
+   updatedAt: Date
 }
 
 @Injectable({
@@ -20,10 +20,14 @@ export interface Article {
 export class BackendService {
    constructor(private http: HttpClient) {}
 
-   private baseUrl = 'http://localhost:8000'
+   private baseUrl = 'http://localhost:3000/api'
 
-   public getArticles<T>(url: string): Observable<Article[]> {
-      return this.http.get<Article[]>(this.baseUrl + url)
+   // public getArticles<T>(url: string): Observable<Article[]> {
+   //    return this.http.get<Article[]>(this.baseUrl + url)
+   // }
+
+   public getArticles<T>(url: string): Observable<T> {
+      return this.http.get<T>(this.baseUrl + url)
    }
 
    public getListImages<T>(url: string): Observable<T> {

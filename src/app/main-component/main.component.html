@@ -1,5 +1,19 @@
-<div class="flex flex-row justify-between mx-auto desktop:w-4/6 mt-5">
-   <div class="w-1/4 bg-blue-700">Left Column</div>
-   <main class="w-1/2 mx-3 p-1"><app-article></app-article></main>
-   <div class="w-1/4 bg-pink-600">Right Column</div>
+<div class="flex flex-row justify-between mx-auto desktop:w-4/6 pt-5">
+   <div class="w-1/4">
+      <div class="bg-white rounded shadow w-full flex flex-col pl-5 pt-5 pr-5 pb-1">
+         <a
+            href=""
+            *ngFor="let word of leftSidebar"
+            class="mb-5 py-3 px-2 rounded hover:bg-pink-100 hover:text-blue-800 dark:text-slate-900"
+         >
+            {{ word }}
+         </a>
+      </div>
+   </div>
+   <main class="w-1/2 mx-3 p-1">
+      <app-article></app-article>
+   </main>
+   <div class="w-1/4">
+      <div class="w-full bg-pink-600 rounded">Right Column</div>
+   </div>
 </div>
