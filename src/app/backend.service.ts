@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHandler } from '@angular/common/http'
 import { Observable } from 'rxjs'
+import { AuthInterceptor } from './http-interceptors/auth-interceptor'
 
 export interface Article {
    _id: string
@@ -18,7 +19,7 @@ export interface Article {
    providedIn: 'root',
 })
 export class BackendService {
-   constructor(private http: HttpClient) {}
+   constructor(private http: HttpClient, private interceptor: AuthInterceptor) {}
 
    private baseUrl = 'http://localhost:3000/api'
 
