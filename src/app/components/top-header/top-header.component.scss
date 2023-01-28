@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.header__search {
+
+}
+
+.header__link {
+  text-decoration: none;
+  padding: 5px 10px 5px 10px;
+  border: 1px solid #3838fa;
+}
